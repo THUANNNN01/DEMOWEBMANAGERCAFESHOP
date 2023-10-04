@@ -37,7 +37,7 @@ route.post('/signup',(req,res) =>{
 
 })
 
-route.post('/login',(req, res)) => {
+route.post('/login',(req, res)=>{
     const user = req.body;
     query = "select email,password,role,status from user where email=?";
     connection.query(query,[user.email],(err,result)=>{
@@ -61,7 +61,7 @@ route.post('/login',(req, res)) => {
             return res.status(500).json(err);
         }
     }) 
-}
+}) 
 
 var transport = nodemailer.createTransport({
     service: 'gmail',
